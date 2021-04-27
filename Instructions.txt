@@ -1,0 +1,48 @@
+Assignment:
+
+Please write your email here:    ____________________
+
+In this assignment you will write a Node JS server that will  be deployed on an app engine (google cloud service) server.
+The app engine project already exists for you to use, under the name: Test-Simon
+This is the link to the project:
+
+Please use vscode (already installed on your computer) to write the code.
+Please use vscode terminal (using gcloud SDK - already installed on your computer) to deploy your code to the app engine project.
+In the second part of the assignment you should write a google “Cloud function” that writes and reads data from the google cloud  “Datastore”.
+
+Part 1: The server app:
+
+The app should have 2 routes, each route should perform a different task.
+
+Route a: “/aaa”: 
+Should detect if the requesting client is a mobile phone or a different device (like a PC).
+Should detect the OS of the requesting client.
+
+Optional responses:
+If the client is a PC then:
+Response should return the OS of the client as a String.
+If the client is not a PC then:
+Response should return the response time of the server in milliseconds.
+
+Route b: “/bbb”:
+Should use “Cheerio” package to scrape an html web page, and return the result as a JSON to the client:
+The page to be scrapped:
+https://apps.apple.com/sz/app/happy-colour-by-numbers/id1407852246
+The code should extract all script elements sources and image element sources from the page and return them in a JSON. (You can decide on a nice way to design the JSON structure).
+
+Part 2: Cloud functions + Datastore: 
+
+Use in this part VS-Code, VS-Code terminal, Google Cloud SDK (Do not use the google cloud function UI).
+The function name should be: “function1”
+The function should write or read data to/from “Datastore” DB.
+The function should be able to receive a parameter in the query params
+The parameter name should be: “write”
+If “write=1”, then:
+It should create kind, with a name: “kind-test”
+In this kind, it should create an entity, with a name: “entity-test”
+The entity should include 2 properties
+String: with a name “String1”, and a value “String2”
+Integer: with a name “Integer1” and a value “999”.
+If “write=0”, then: 
+The function should GET all entities information from the kind “kind-test” in the Datastore of the project.
+The function should respond with a JSON that includes all the above data of the kind.
